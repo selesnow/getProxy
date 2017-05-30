@@ -12,7 +12,7 @@ function(country = NULL,
   
   #Проверяем выбранное действие, если указано start или get образаемся к API для получения прокси
   if(action %in% c("start","get")){
-    
+    service_name <- "gimmeproxy.com"
     #В зависимости от выбранного серввиса образаемся к его API
     #Для сервиса gimmeproxy
       packageStartupMessage("Ger proxy from gimmeproxy.com", appendLF = T)
@@ -35,6 +35,7 @@ function(country = NULL,
       if(is.null(proxy_ip_port)|class(proxy_list_raw)=="character"){
         packageStartupMessage(paste0("Error: ",if(class(proxy_list_raw)=="character") proxy_list_raw else fromJSON(proxy_list_raw)$error,", try get proxy from getproxylist.com"), appendLF = T)
         #Формируем URL для запроса
+        service_name <- "getproxylist.com"
         URL_txt <- paste0("https://api.getproxylist.com/proxy?",
                           gsub("^&|&$", "",
                                gsub("&{2,5}", "&",
@@ -54,7 +55,7 @@ function(country = NULL,
       if(is.null(proxy_ip_port)){
         stop("Sorry, some error in both services API, try later.")
       }else{
-      packageStartupMessage("Ger proxy from gimmeproxy.com SUCCESS", appendLF = T)
+      packageStartupMessage(paste0("Ger proxy from ",service_name," SUCCESS"), appendLF = T)
       packageStartupMessage(paste0("IP port: ", proxy_ip_port), appendLF = T)
       }
       
