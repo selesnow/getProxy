@@ -1,7 +1,7 @@
 Package: getProxy
 Type: Package
 Title: Package for get free proxy IP and Port
-Version: 1.011
+Version: 1.012
 Date: 2017-05-30
 Author: Alexey Seleznev
 Description: Function of this package was help ip and by free proxy, from one of two servies gimmeproxy.com or getproxylist.com.
