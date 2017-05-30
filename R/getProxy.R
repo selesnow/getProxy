@@ -5,6 +5,11 @@ function(country = NULL,
                      port = NULL, 
                      type = "http",
                      action = "start"){
+  
+  #Снимаем настройки прокси сервера
+  Sys.unsetenv("https_proxy")
+  Sys.unsetenv("http_proxy")
+  
   #Проверяем выбранное действие, если указано start или get образаемся к API для получения прокси
   if(action %in% c("start","get")){
     
@@ -17,7 +22,7 @@ function(country = NULL,
                         gsub("^&|&$|&{2,5}", "&",
                         paste(if(!is.null(country)) paste0("country=",country),
                               if(!is.null(notCountry)) paste0("notCountry=",notCountry),
-                              if(isTRUE(supportsHttps)) paste0("supportsHttps=","true"),
+                              if(isTRUE(supportsHttps)) {paste0("supportsHttps=","true")}else{paste0("supportsHttps=","false")},
                               if(!is.null(port)) paste0("port=",port),
                               if(!is.null(type)) paste0("protocol=",type),
                               sep = "&"))))
@@ -54,8 +59,13 @@ function(country = NULL,
       
     #Если в аргумент action было установлено значение start то применяем прокси
     if(action == "start"){
-        Sys.setenv(https_proxy=proxy_ip_port)
-        if(Sys.getenv("https_proxy")!=""){
+      #Проверяем требовались ли поддержка https, если да то устанавливаем настройку https, если нет то http
+        if(isTRUE(supportsHttps)){
+          Sys.setenv(https_proxy=proxy_ip_port)
+            }else{
+          Sys.setenv(http_proxy=proxy_ip_port) 
+        }
+        if(Sys.getenv("https_proxy")!=""|Sys.getenv("http_proxy")!=""){
           packageStartupMessage("Proxy server connection SUCCES", appendLF = T)
         }else{
           stop("Some error in proxy start!")
@@ -65,7 +75,9 @@ function(country = NULL,
   }
   
   if(action == "stop"){
+    #Снимаем настройки прокси сервера
     Sys.unsetenv("https_proxy")
+    Sys.unsetenv("http_proxy")
     packageStartupMessage("Proxy server STOP", appendLF = T)
     }
 }
