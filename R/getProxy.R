@@ -1,18 +1,17 @@
 getProxy <-
-function(service = "gimmeproxy.com", 
-                     country = NULL, 
+function(country = NULL, 
                      notCountry = NULL, 
                      supportsHttps = TRUE, 
                      port = NULL, 
                      type = "http",
                      action = "start"){
-  #Ïðîâåðÿåì âûáðàííîå äåéñòâèå, åñëè óêàçàíî start èëè get îáðàçàåìñÿ ê API äëÿ ïîëó÷åíèÿ ïðîêñè
+  #ÐŸÑ€Ð¾Ð²ÐµÑ€ÑÐµÐ¼ Ð²Ñ‹Ð±Ñ€Ð°Ð½Ð½Ð¾Ðµ Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ðµ, ÐµÑÐ»Ð¸ ÑƒÐºÐ°Ð·Ð°Ð½Ð¾ start Ð¸Ð»Ð¸ get Ð¾Ð±Ñ€Ð°Ð·Ð°ÐµÐ¼ÑÑ Ðº API Ð´Ð»Ñ Ð¿Ð¾Ð»ÑƒÑ‡ÐµÐ½Ð¸Ñ Ð¿Ñ€Ð¾ÐºÑÐ¸
   if(action %in% c("start","get")){
     
-    #Â çàâèñèìîñòè îò âûáðàííîãî ñåðââèñà îáðàçàåìñÿ ê åãî API
-    #Äëÿ ñåðâèñà gimmeproxy
-    if(service == "gimmeproxy.com"){
-      #Ôîðìèðóåì URL äëÿ çàïðîñà
+    #Ð’ Ð·Ð°Ð²Ð¸ÑÐ¸Ð¼Ð¾ÑÑ‚Ð¸ Ð¾Ñ‚ Ð²Ñ‹Ð±Ñ€Ð°Ð½Ð½Ð¾Ð³Ð¾ ÑÐµÑ€Ð²Ð²Ð¸ÑÐ° Ð¾Ð±Ñ€Ð°Ð·Ð°ÐµÐ¼ÑÑ Ðº ÐµÐ³Ð¾ API
+    #Ð”Ð»Ñ ÑÐµÑ€Ð²Ð¸ÑÐ° gimmeproxy
+      packageStartupMessage("Ger proxy from gimmeproxy.com", appendLF = T)
+      #Ð¤Ð¾Ñ€Ð¼Ð¸Ñ€ÑƒÐµÐ¼ URL Ð´Ð»Ñ Ð·Ð°Ð¿Ñ€Ð¾ÑÐ°
       URL_txt <- paste0("https://gimmeproxy.com/api/getProxy?",
                         gsub("^&|&$", "",
                         gsub("^&|&$|&{2,5}", "&",
@@ -22,41 +21,38 @@ function(service = "gimmeproxy.com",
                               if(!is.null(port)) paste0("port=",port),
                               if(!is.null(type)) paste0("protocol=",type),
                               sep = "&"))))
-      #Îòïðàâëÿåì çàïðîñ
+      #ÐžÑ‚Ð¿Ñ€Ð°Ð²Ð»ÑÐµÐ¼ Ð·Ð°Ð¿Ñ€Ð¾Ñ
       proxy_list_raw <- getURL(URL_txt)
-      #Ïàðñèì îòâåò, è çàïèñûâàåì â ïåðåìåííóþ IP è ïîðò
+      #ÐŸÐ°Ñ€ÑÐ¸Ð¼ Ð¾Ñ‚Ð²ÐµÑ‚, Ð¸ Ð·Ð°Ð¿Ð¸ÑÑ‹Ð²Ð°ÐµÐ¼ Ð² Ð¿ÐµÑ€ÐµÐ¼ÐµÐ½Ð½ÑƒÑŽ IP Ð¸ Ð¿Ð¾Ñ€Ñ‚
       proxy_ip_port <- fromJSON(proxy_list_raw)$ipPort
-      #Ïðîâåðêà ðåçóëüòàòà
+      #ÐŸÑ€Ð¾Ð²ÐµÑ€ÐºÐ° Ñ€ÐµÐ·ÑƒÐ»ÑŒÑ‚Ð°Ñ‚Ð°
       if(is.null(proxy_ip_port)){
-        stop(paste0("Error: ",fromJSON(proxy_list_raw)$error,", you can try change servise to getproxylist.com"))
+        packageStartupMessage(paste0("Error: ",fromJSON(proxy_list_raw)$error,", try get proxy from getproxylist.com"), appendLF = T)
+        #Ð¤Ð¾Ñ€Ð¼Ð¸Ñ€ÑƒÐµÐ¼ URL Ð´Ð»Ñ Ð·Ð°Ð¿Ñ€Ð¾ÑÐ°
+        URL_txt <- paste0("https://api.getproxylist.com/proxy?",
+                          gsub("^&|&$", "",
+                               gsub("&{2,5}", "&",
+                                    paste(if(!is.null(country)) paste0("country=",country),
+                                          if(!is.null(notCountry)) paste0("notCountry=",notCountry),
+                                          if(isTRUE(supportsHttps))  paste0("allowsHttps=",1),
+                                          if(!is.null(port)) paste0("port=",port),
+                                          if(!is.null(type)) paste0("protocol=",type),
+                                          sep = "&"))))
+        #ÐžÑ‚Ð¿Ñ€Ð°Ð²Ð»ÑÐµÐ¼ Ð·Ð°Ð¿Ñ€Ð¾Ñ
+        proxy_list_raw <- getURL(URL_txt)
+        #ÐŸÐ°Ñ€ÑÐ¸Ð¼ Ð¾Ñ‚Ð²ÐµÑ‚, Ð¸ Ð·Ð°Ð¿Ð¸ÑÑ‹Ð²Ð°ÐµÐ¼ Ð² Ð¿ÐµÑ€ÐµÐ¼ÐµÐ½Ð½ÑƒÑŽ IP Ð¸ Ð¿Ð¾Ñ€Ñ‚
+        proxy_ip_port <- paste0(fromJSON(proxy_list_raw)$ip, ":",fromJSON(proxy_list_raw)$port)
       }
-      #Âûâîäèì ñîîáùåíèå
+      
+      #Ð’Ñ‹Ð²Ð¾Ð´Ð¸Ð¼ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ðµ
+      if(is.null(proxy_ip_port)){
+        stop("Sorry, some error in both services API, try later.")
+      }else{
       packageStartupMessage("Ger proxy from gimmeproxy.com SUCCESS", appendLF = T)
       packageStartupMessage(paste0("IP port: ", proxy_ip_port), appendLF = T)
-    }
-    
-    #Äëÿ ñåðâèñà getproxylist.com
-    if(service == "getproxylist.com"){
-      #Ôîðìèðóåì URL äëÿ çàïðîñà
-      URL_txt <- paste0("https://api.getproxylist.com/proxy?",
-                        gsub("^&|&$", "",
-                        gsub("&{2,5}", "&",
-                             paste(if(!is.null(country)) paste0("country=",country),
-                                   if(!is.null(notCountry)) paste0("notCountry=",notCountry),
-                                   if(isTRUE(supportsHttps))  paste0("allowsHttps=",1),
-                                   if(!is.null(port)) paste0("port=",port),
-                                   if(!is.null(type)) paste0("protocol=",type),
-                                   sep = "&"))))
-      #Îòïðàâëÿåì çàïðîñ
-      proxy_list_raw <- getURL(URL_txt)
-      #Ïàðñèì îòâåò, è çàïèñûâàåì â ïåðåìåííóþ IP è ïîðò
-      proxy_ip_port <- paste0(fromJSON(proxy_list_raw)$ip, ":",fromJSON(proxy_list_raw)$port)
-      #Âûâîäèì ñîîáùåíèå
-      packageStartupMessage("Ger proxy from getproxylist.com SUCCESS", appendLF = T)
-      packageStartupMessage(paste0("IP port: ", proxy_ip_port), appendLF = T)
-    }
-    
-    #Åñëè â àðãóìåíò action áûëî óñòàíîâëåíî çíà÷åíèå start òî ïðèìåíÿåì ïðîêñè
+      }
+      
+    #Ð•ÑÐ»Ð¸ Ð² Ð°Ñ€Ð³ÑƒÐ¼ÐµÐ½Ñ‚ action Ð±Ñ‹Ð»Ð¾ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð¾ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ start Ñ‚Ð¾ Ð¿Ñ€Ð¸Ð¼ÐµÐ½ÑÐµÐ¼ Ð¿Ñ€Ð¾ÐºÑÐ¸
     if(action == "start"){
         Sys.setenv(https_proxy=proxy_ip_port)
         if(Sys.getenv("https_proxy")!=""){
