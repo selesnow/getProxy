@@ -1,10 +1,10 @@
 getProxy <-
 function(country = NULL, 
-                     notCountry = NULL, 
-                     supportsHttps = TRUE, 
-                     port = NULL, 
-                     type = "http",
-                     action = "start"){
+         notCountry = NULL, 
+         supportsHttps = TRUE, 
+         port = NULL, 
+         type = "http",
+         action = "start"){
   
   #Снимаем настройки прокси сервера
   Sys.unsetenv("https_proxy")
@@ -27,12 +27,13 @@ function(country = NULL,
                               if(!is.null(type)) paste0("protocol=",type),
                               sep = "&"))))
       #Отправляем запрос
-      proxy_list_raw <- getURL(URL_txt)
+      proxy_list_raw <- try(getURL(URL_txt))
       #Парсим ответ, и записываем в переменную IP и порт
-      proxy_ip_port <- fromJSON(proxy_list_raw)$ipPort
+      proxy_ip_port <- try(fromJSON(proxy_list_raw)$ipPort, silent = T)
+      
       #Проверка результата
-      if(is.null(proxy_ip_port)){
-        packageStartupMessage(paste0("Error: ",fromJSON(proxy_list_raw)$error,", try get proxy from getproxylist.com"), appendLF = T)
+      if(is.null(proxy_ip_port)|class(proxy_list_raw)=="character"){
+        packageStartupMessage(paste0("Error: ",if(class(proxy_list_raw)=="character") proxy_list_raw else fromJSON(proxy_list_raw)$error,", try get proxy from getproxylist.com"), appendLF = T)
         #Формируем URL для запроса
         URL_txt <- paste0("https://api.getproxylist.com/proxy?",
                           gsub("^&|&$", "",
