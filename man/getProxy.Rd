@@ -6,11 +6,10 @@ This function get IP and Port from one of service gimmeproxy.com or getproxylist
 Also this function can start and stop proxy seting in R.
 }
 \usage{
-getProxy(service = "gimmeproxy.com", country = NULL, notCountry = NULL, supportsHttps = TRUE, port = NULL, type = "http", action = "start")
+getProxy( country = NULL, notCountry = NULL, supportsHttps = TRUE, port = NULL, type = "http", action = "start")
 }
 
 \arguments{
-  \item{service}{Character, one of twoe value "gimmeproxy.com" by default, and "getproxylist.com"}
   \item{country}{Character, country code in ISO 3166-1 alpha-2, for more ditail go - https://en.wikipedia.org/wiki/ISO_3166-1#Current_codes}
   \item{notCountry}{Character, country code in ISO 3166-1 alpha-2, for more ditail go - https://en.wikipedia.org/wiki/ISO_3166-1#Current_codes}
   \item{supportsHttps}{Logical, TRUE of FALSE supports HTTPS requests}
