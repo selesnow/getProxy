@@ -32,7 +32,7 @@ function(country = NULL,
       proxy_ip_port <- try(fromJSON(proxy_list_raw)$ipPort, silent = T)
       
       #Проверка результата
-      if(is.null(proxy_ip_port)){
+      if(is.null(proxy_ip_port)|class(proxy_ip_port)=="try-error"){
         packageStartupMessage(paste0("Error: ",if(class(proxy_list_raw)=="character") proxy_list_raw else fromJSON(proxy_list_raw)$error,", try get proxy from getproxylist.com"), appendLF = T)
         #Формируем URL для запроса
         service_name <- "getproxylist.com"
