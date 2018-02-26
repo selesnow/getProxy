@@ -1,3 +1,11 @@
+<head>
+<link rel="shortcut icon" type="image/x-icon" href="as.ico">
+</head>
+
+<p align="center">
+<a href="https://selesnow.github.io/"><img src="https://alexeyseleznev.files.wordpress.com/2017/03/as.png" height="80"></a>
+</p>
+
 ## Описание пакета getProxy.
 Пакет getProxy предназначен для работы с бесплатными прокси серверами из R.
 
