@@ -37,6 +37,12 @@
       <td>
         <a href="https://selesnow.github.io/getProxy/">getProxy</a>
       </td>
+      <td>
+        <a href="https://selesnow.github.io/rGitHub/">rGitHub</a>
+      </td>
+      <td>
+        <a href="https://selesnow.github.io/news/">NEWS</a>
+      </td>
     </tr>
 </table>
 
@@ -51,7 +57,7 @@
 ## Установка пакета getProxy:
 Устанавливать пакет необходимо из репозитория GitHub, для этого вам потребуется пакет devtools, для установки воспользуйтесь приведённым ниже кодом.
  
-```
+```r
 if(!"devtools"" %in% installed.packages()[,1]){install.packages("devtools")}
 library(devtools)
 install_github("selesnow/getProxy")
@@ -89,7 +95,7 @@ install_github("selesnow/getProxy")
 
 Перед запуском приведённого ниже кода у вас уже должны быть установлены пакеты ryandexdirect и getProxy, процесс установки данныъ пакетов описан в предыдущих пунктах статьи.
  
-```
+```r
 #Подключаем пакеты
 library(ryandexdirect)
 library(getProxy)
@@ -116,14 +122,43 @@ getProxy(action = "stop")
  
 Приведённый выше код при каждом запуске  будет автоматически запрашивать настройки доступного прокси сервера и применять их.
 
-*Автор пакета: Алексей Селезнёв, Head of Analytics Dept. at Netpeak*
- 
- [GitHub](https://github.com/selesnow/)
- [VK](https://vk.com/selesnow)
- [Facebook](https://www.facebook.com/selesnow)
- [Linkedin](https://ua.linkedin.com/in/selesnow)
- [Stepik](https://stepik.org/users/792428)
-  
-<p align="center">
-<img src="https://alexeyseleznev.files.wordpress.com/2017/03/as.png?w=300" data-canonical-src="https://alexeyseleznev.files.wordpress.com/2017/03/as.png?w=300" style="max-width:100%;">
-</p>
+---
+
+## *Автор пакета: Алексей Селезнёв, Head of Analytics Dept. at Netpeak*
+<table>
+    <tr>
+      <td>
+      <img align="right" src="https://lh3.googleusercontent.com/R-0jgJSxIIhpag2L6YCIhJVIcIWx6-Jt5UCTRJjWzJewo47u2QBnik5CRF2dNB79jmsN_BFRjVOAYfvCqFcn3UNS_thGbbxF-99c9lwBWWlFI7JCWE43K5Yk9HnIW8i8YpTDx3l28IuYswaI-qc9QosHT1lPCsVilTfXTyV2empF4S74daOJ6x5QHYRWumT_2MhUS0hPqUsKVtOoveqDnGf3cF_VsN-RfOAwG9uCeGOgNRgv_fhSr41rw4LBND4gf05nO8zMp4TZMrrcUjKvvx6qNgYDor5LFOHiRmfKISYRVkWYe4wLyGO1FgkgTDjg0300lcur2t3txVwZUgROLZdaxOLx4owa8Rc8B8VKwd3vHxjov_aVfNPT4xf9jSFBBEOI-mfYpa55ejKDw-rqTQ6miFRFWpp_hjrk9KbGyB-Z6iZvYL-2dZ6mzgpUfs2I0tEAGsV07yTzboJ0RNCByC2-U-ZVjWdp2_9Au3FFoUcdQUAmPYOVqOv4r3oLbkkJKLj2A5jp7vf4IAoExLIfJuqEf7XN7fFcv4geib029qJjBt28wnqSO6TKEwB2fesR3uPHvGB6_6NHD70UDH-aCRCK4UBeoajtU0Y8Ks8Vwxo0oZBwmoEu8gudTFBF6mDT7GjLoGLDeNxE-TG7OtWUdxsJk7yzXGW3hE-VxsMD9g=s351-no?w=100" height="150">
+      </td>
+      <td>
+        <b>Контакты</b>
+        <br>email: selesnow@gmail.com
+        <br>skype: selesnow
+        <br>telegram: @AlexeySeleznev
+      </td>
+    </tr>
+    <tr>
+     <table>
+    <tr>
+      <td>
+        <a href="https://facebook.com/selesnow/">Facebook</a>
+      </td>
+      <td>
+        <a href="https://vk.com/selesnow">Vkontakte</a>
+      </td>
+      <td>
+        <a href="https://linkedin.com/in/selesnow">Linkedin</a>
+      </td>
+      <td>
+        <a href="https://alexeyseleznev.wordpress.com/">Blog</a>
+      </td>
+      <td>
+        <a href="https://github.com/selesnow/">GitHub</a>
+      </td>
+      <td>
+        <a href="https://stepik.org/users/792428">Stepic</a>
+      </td>
+    </tr>
+</table>
+    </tr>
+</table>
