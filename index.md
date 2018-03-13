@@ -46,6 +46,7 @@
     </tr>
 </table>
 
+<center>
 <script>
   (function() {
     var cx = '002735389418227325972:fdikniadyig';
@@ -58,6 +59,7 @@
   })();
 </script>
 <gcse:search></gcse:search>
+</center>
 
 ## Описание пакета getProxy.
 Пакет getProxy предназначен для работы с бесплатными прокси серверами из R.
