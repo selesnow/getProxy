@@ -24,7 +24,7 @@ install_github("selesnow/getProxy")
 ```
 ## Видео мануал по работе с пакетом getPrpoxy
 [getProxy tuorial](https://youtu.be/3onMs_YoAmA)
-
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/3onMs_YoAmA)
 ## Аргументы функции getProxy:
 
 **country** - Текстовое значение, код страны в которой вы хотите запросить настройки прокси сервера, в формате ISO 3166-1 alpha-2, коды всех стран можно найти [тут](https://en.wikipedia.org/wiki/ISO_3166-1#Current_codes).
