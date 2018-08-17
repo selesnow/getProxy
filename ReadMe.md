@@ -22,8 +22,6 @@ if(!"devtools"" %in% installed.packages()[,1]){install.packages("devtools")}
 library(devtools)
 install_github("selesnow/getProxy")
 ```
-## Видео мануал по работе с пакетом getPrpoxy
-[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/3onMs_YoAmA)
 
 ## Аргументы функции getProxy:
 
