@@ -85,7 +85,11 @@ li.menu {
 * [Документация](https://selesnow.github.io/getProxy/)
 * [Отчёт об ошибках и доработках](https://github.com/selesnow/getProxy/issues)
 * [Список релизов](https://github.com/selesnow/getProxy/releases)
+* [Страница на rdocumetations]()
 * [Группа в Вконтакте](https://vk.com/data_club)
+
+## CRAN
+
 
 ## Подробное описание.
 Для упрощения задачи при работе с бесплатными API сервисами предоставляющими IP и порт прокси серверов был разработан пакет getProxy с помощью которого вы одной строкой кода, без особого труда можете автоматически запрашивать IP адрес и порт прокси сервера, применять к запросу фильтры по порту, странам и типу прокси, а так же сразу применять полученные настройки.
@@ -96,8 +100,13 @@ li.menu {
 <iframe width="560" height="315" src="https://www.youtube.com/embed/3onMs_YoAmA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 ## Установка пакета getProxy:
-Устанавливать пакет необходимо из репозитория GitHub, для этого вам потребуется пакет devtools, для установки воспользуйтесь приведённым ниже кодом.
- 
+Устанавливать пакет можно либо из основного репозитория для хранения пакетов в R - CRAN, либо необходимо из моего репозитория на GitHub, но для этого вам потребуется пакет devtools, для установки воспользуйтесь приведённым ниже кодом.
+
+### Установка из CRAN
+```r
+install.packages("getProxy")
+```
+### Установка из GitHub
 ```r
 if(!"devtools"" %in% installed.packages()[,1]){install.packages("devtools")}
 library(devtools)
