@@ -6,17 +6,16 @@ function(country = NULL,
          type = "http",
          action = "start"){
   
-  #Снимаем настройки прокси сервера
+
   Sys.unsetenv("https_proxy")
   Sys.unsetenv("http_proxy")
   
-  #Проверяем выбранное действие, если указано start или get образаемся к API для получения прокси
+
   if(action %in% c("start","get")){
     service_name <- "gimmeproxy.com"
-    #В зависимости от выбранного серввиса образаемся к его API
-    #Для сервиса gimmeproxy
+
       packageStartupMessage("Ger proxy from gimmeproxy.com", appendLF = T)
-      #Формируем URL для запроса
+
       URL_txt <- paste0("https://gimmeproxy.com/api/getProxy?",
                         gsub("^&|&$", "",
                         gsub("^&|&$|&{2,5}", "&",
@@ -26,15 +25,15 @@ function(country = NULL,
                               if(!is.null(port)) paste0("port=",port),
                               if(!is.null(type)) paste0("protocol=",type),
                               sep = "&"))))
-      #Отправляем запрос
+
       proxy_list_raw <- try(getURL(URL_txt))
-      #Парсим ответ, и записываем в переменную IP и порт
+
       proxy_ip_port <- try(fromJSON(proxy_list_raw)$ipPort, silent = T)
       
-      #Проверка результата
+
       if(is.null(proxy_ip_port)|class(proxy_ip_port)=="try-error"){
         packageStartupMessage(paste0("Error: ",if(class(proxy_list_raw)=="character") proxy_list_raw else fromJSON(proxy_list_raw)$error,", try get proxy from getproxylist.com"), appendLF = T)
-        #Формируем URL для запроса
+
         service_name <- "getproxylist.com"
         URL_txt <- paste0("https://api.getproxylist.com/proxy?",
                           gsub("^&|&$", "",
@@ -45,13 +44,13 @@ function(country = NULL,
                                           if(!is.null(port)) paste0("port=",port),
                                           if(!is.null(type)) paste0("protocol=",type),
                                           sep = "&"))))
-        #Отправляем запрос
+
         proxy_list_raw <- getURL(URL_txt)
-        #Парсим ответ, и записываем в переменную IP и порт
+
         proxy_ip_port <- paste0(fromJSON(proxy_list_raw)$ip, ":",fromJSON(proxy_list_raw)$port)
       }
       
-      #Выводим сообщение
+
       if(is.null(proxy_ip_port)){
         stop("Sorry, some error in both services API, try later.")
       }else{
@@ -59,9 +58,9 @@ function(country = NULL,
       packageStartupMessage(paste0("IP port: ", proxy_ip_port), appendLF = T)
       }
       
-    #Если в аргумент action было установлено значение start то применяем прокси
+
     if(action == "start"){
-      #Проверяем требовались ли поддержка https, если да то устанавливаем настройку https, если нет то http
+
         if(isTRUE(supportsHttps)){
           Sys.setenv(https_proxy=proxy_ip_port)
             }else{
@@ -77,7 +76,7 @@ function(country = NULL,
   }
   
   if(action == "stop"){
-    #Снимаем настройки прокси сервера
+
     Sys.unsetenv("https_proxy")
     Sys.unsetenv("http_proxy")
     packageStartupMessage("Proxy server STOP", appendLF = T)

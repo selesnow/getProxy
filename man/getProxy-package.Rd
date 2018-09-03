@@ -1,6 +1,5 @@
 \name{getProxy-package}
 \alias{getProxy-package}
-\alias{getProxy}
 \docType{package}
 \title{
 \packageTitle{getProxy}
@@ -13,22 +12,25 @@
 The DESCRIPTION file:
 \packageDESCRIPTION{getProxy}
 \packageIndices{getProxy}
-~~ An overview of how to use the package, including the most important functions ~~
 }
 \author{
 \packageAuthor{getProxy}
 
 Maintainer: \packageMaintainer{getProxy}
 }
-\references{
-~~ Literature or other references for background information ~~
-}
-~~ Optionally other standard keywords, one per line, from file KEYWORDS in the R documentation directory ~~
-\keyword{ package }
-\seealso{
-~~ Optional links to other man pages, e.g. ~~
-~~ \code{\link[<pkg>:<pkg>-package]{<pkg>}} ~~
-}
+
 \examples{
-~~ simple examples of the most important functions ~~
+\dontrun{
+library(getProxy)
+#For get ans start proxy settings 
+prox_ip_and_port <- getProxy(port    = "3128", 
+							 country = "RU", 
+							 action  = "start")
+
+# This put you code for get data 
+# from blocked source
+
+#For stop proxy
+getProxy(action = "stop")
+}
 }
