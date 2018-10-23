@@ -89,13 +89,13 @@ getProxy(action = "stop")
  
 Приведённый выше код при каждом запуске  будет автоматически запрашивать настройки доступного прокси сервера и применять их.
 
-*Автор пакета: Алексей Селезнёв, Head of Analytics Dept. at Netpeak*
- 
- [GitHub](https://github.com/selesnow/)
- [VK](https://vk.com/selesnow)
- [Facebook](https://www.facebook.com/selesnow)
- [Linkedin](https://ua.linkedin.com/in/selesnow)
- [Stepik](https://stepik.org/users/792428)
+### Автор пакета
+Алексей Селезнёв, Head of analytics dept. at [Netpeak](https://netpeak.net)
+<Br>email: selesnow@gmail.com
+<Br>skype: selesnow
+<Br>facebook: [facebook.com/selesnow](https://facebook.com/selesnow)
+<Br>linkedin: [linkedin.com/in/selesnow](https://linkedin.com/in/selesnow)
+<Br>blog: [alexeyseleznev.wordpress.com](https://alexeyseleznev.wordpress.com/)
   
 <p align="center">
 <img src="https://alexeyseleznev.files.wordpress.com/2017/03/as.png?w=300" data-canonical-src="https://alexeyseleznev.files.wordpress.com/2017/03/as.png?w=300" style="max-width:100%;">
