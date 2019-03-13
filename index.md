@@ -125,7 +125,8 @@ li.nm_li {
 * [Группа в Вконтакте](https://vk.com/data_club)
 
 ## CRAN
-
+[![Rdoc](http://www.rdocumentation.org/badges/version/getProxy)](http://www.rdocumentation.org/packages/getProxy)
+[![rpackages.io rank](http://www.rpackages.io/badge/getProxy.svg)](http://www.rpackages.io/package/getProxy)
 
 ## Подробное описание.
 Для упрощения задачи при работе с бесплатными API сервисами предоставляющими IP и порт прокси серверов был разработан пакет getProxy с помощью которого вы одной строкой кода, без особого труда можете автоматически запрашивать IP адрес и порт прокси сервера, применять к запросу фильтры по порту, странам и типу прокси, а так же сразу применять полученные настройки.
