@@ -6,9 +6,7 @@
 <a href="https://selesnow.github.io/"><img src="https://alexeyseleznev.files.wordpress.com/2017/03/as.png" height="80"></a>
 </p>
 
-<p align="center">
-<img src="https://raw.githubusercontent.com/selesnow/getProxy/master/inst/logo/getProxy.png" height="200">
-</p>
+# getProxy<a href='https:/selesnow/github.io/getProxy'><img src='https://raw.githubusercontent.com/selesnow/getProxy/master/inst/logo/getProxy.png' align="right" height="139" /></a>
 
 ## Описание пакета getProxy.
 Пакет getProxy предназначен для работы с бесплатными прокси серверами из R.
