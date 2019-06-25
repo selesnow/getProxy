@@ -114,7 +114,7 @@ li.nm_li {
 <gcse:search></gcse:search>
 <Br>
 
-## Описание пакета getProxy.
+## Описание пакета getProxy. <a href='https:/selesnow/github.io/getProxy'><img src='https://raw.githubusercontent.com/selesnow/getProxy/master/inst/logo/getProxy.png' align="right" height="139" /></a>
 Пакет getProxy предназначен для работы с бесплатными прокси серверами из R.
 
 ## Ссылки
