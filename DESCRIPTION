@@ -1,8 +1,8 @@
 Package: getProxy
 Type: Package
 Title: Get Free Proxy IP and Port
-Version: 1.12
-Date: 2018-08-15
+Version: 1.2
+Date: 2021-10-11
 Author: Alexey Seleznev <selesnow@gmail.com>
 Maintainer: Alexey Seleznev <selesnow@gmail.com>
 Description: Allows get address and port 
@@ -10,8 +10,8 @@ Description: Allows get address and port
 	<http://gimmeproxy.com/> or <https://getproxylist.com/>. 
 	And it's easy to redirect your Internet connection through
 	a proxy server.
-Depends: R (>= 3.0.0)
+Depends: R (>= 3.5.0)
 BugReports: https://github.com/selesnow/getProxy/issues
-Imports: data.table, httr, RCurl, bitops, jsonlite, dplyr
+Imports: httr
 URL: http://selesnow.github.io/getProxy
 License: GPL-2
