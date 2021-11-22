@@ -52,7 +52,7 @@ function(country = NULL,
       proxy_ip_port  <- try(paste0(proxy_list_raw$ip, ":",proxy_list_raw$port))
     }
     
-    if(is.null(proxy_ip_port)|class(proxy_ip_port)=="try-error"){
+    if(is.null(proxy_ip_port)|class(proxy_ip_port)=="try-error"|proxy_ip_port==":"){
       
       packageStartupMessage(paste0("Error: ",if(class(proxy_list_raw)=="character") proxy_list_raw else proxy_list_raw$error,", try get proxy from getproxylist.com"), appendLF = T)
       
