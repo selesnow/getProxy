@@ -74,13 +74,7 @@ function(country = NULL,
                                   country = country
                                 )), silent = T)
       proxy_list_raw <- try(content(proxy_list_raw), silent = T)
-      proxy_list_raw <- try(strsplit(proxy_list_raw, split = '\r\n', fixed = T)[[1]])
-      
-      if ( is.null(port) ) {
-        proxy_ip_port <- head(proxy_list_raw, 1)
-      } else {
-        proxy_ip_port <- head(proxy_list_raw[grepl(pattern = paste0('.*:', port, "$"), proxy_list_raw)], 1)
-      }
+      proxy_ip_port <- try(strsplit(proxy_list_raw, split = '\r\n', fixed = T)[[1]])
       
     }
     
