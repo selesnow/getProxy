@@ -255,57 +255,60 @@ getProxy <-
     
     Sys.unsetenv("https_proxy")
     Sys.unsetenv("http_proxy")
+    
+    if ( action %in% c("start","get") ){
+    
+      n_attempt <- 1
+      success <- FALSE
+      
+      while ( !success & n_attempt <= 10 ) {
+        
+        GPfun <- sample(getProxyFunctions, 1)[[1]]
+        proxy <- GPfun(
+          country = country,
+          notCountry = notCountry,
+          supportsHttps = supportsHttps,
+          port = port,
+          type = type
+        )
+        
+        success <- proxy$success
+        
+        if (!success) cli_alert_danger(proxy$err_msg)
+        
+        n_attempt <- n_attempt + 1
+        
+      }
+      
+      if (n_attempt == 11 & !success) {
+        cli_abort('Some error, see log!')
+      } else {
+        cli_alert_success('Get {proxy$proxy} from {proxy$service}')
+      }
+      
+      if (action == "start") {
+        
+      if( isTRUE(supportsHttps) ){
+          Sys.setenv(https_proxy=proxy$proxy)
+        }else{
+          Sys.setenv(http_proxy=proxy$proxy) 
+        }
+        if (Sys.getenv("https_proxy")!=""|Sys.getenv("http_proxy")!=""){
+          cli_alert_success('Set {proxy$proxy} SUCCESS from {proxy$service}')
+        }else{
+          cli_abort("Some error in proxy start!")
+        }
+      }
   
-    n_attempt <- 1
-    success <- FALSE
-    
-    while ( !success & n_attempt <= 10 ) {
-      
-      GPfun <- sample(getProxyFunctions, 1)[[1]]
-      proxy <- GPfun(
-        country = country,
-        notCountry = notCountry,
-        supportsHttps = supportsHttps,
-        port = port,
-        type = type
-      )
-      
-      success <- proxy$success
-      
-      if (!success) cli_alert_danger(proxy$err_msg)
-      
-      n_attempt <- n_attempt + 1
-      
-    }
-    
-    if (n_attempt == 11 & !success) {
-      cli_abort('Some error, see log!')
-    } else {
-      cli_alert_success('Get {proxy$proxy} from {proxy$service}')
-    }
-    
-    if (action == "start") {
-      
-    if( isTRUE(supportsHttps) ){
-        Sys.setenv(https_proxy=proxy$proxy)
-      }else{
-        Sys.setenv(http_proxy=proxy$proxy) 
-      }
-      if (Sys.getenv("https_proxy")!=""|Sys.getenv("http_proxy")!=""){
-        cli_alert_success('Set {proxy$proxy} SUCCESS from {proxy$service}')
-      }else{
-        cli_abort("Some error in proxy start!")
-      }
+      return(proxy$proxy)
     }
 
-    return(proxy$proxy)
-
-  if(action == "stop"){
-    
-    Sys.unsetenv("https_proxy")
-    Sys.unsetenv("http_proxy")
-    cli_alert_success("Proxy server STOP")
-    
-  }
+    if(action == "stop"){
+      
+      Sys.unsetenv("https_proxy")
+      Sys.unsetenv("http_proxy")
+      cli_alert_success("Proxy server STOP")
+      
+    }
     
 }
