@@ -12,6 +12,6 @@ Description: Allows get address and port
 	a proxy server.
 Depends: R (>= 3.5.0)
 BugReports: https://github.com/selesnow/getProxy/issues
-Imports: httr
+Imports: httr, cli
 URL: http://selesnow.github.io/getProxy
 License: GPL-2
