@@ -12,8 +12,8 @@ getProxy( country = NULL, notCountry = NULL,
 }
 
 \arguments{
-  \item{country}{Character, country code in ISO 3166-1 alpha-2, for more ditail go \href{link}{https://en.wikipedia.org/wiki/ISO_3166-1#Current_codes}}
-  \item{notCountry}{Character, country code in ISO 3166-1 alpha-2, for more ditail go - \href{link}{https://en.wikipedia.org/wiki/ISO_3166-1#Current_codes}}
+  \item{country}{Character, country code in ISO 3166-1 alpha-2, for more ditail go \href{https://en.wikipedia.org/wiki/ISO_3166-1#Current_codes}{link}}
+  \item{notCountry}{Character, country code in ISO 3166-1 alpha-2, for more ditail go - \href{https://en.wikipedia.org/wiki/ISO_3166-1#Current_codes}{link}}
   \item{supportsHttps}{Logical, TRUE of FALSE supports HTTPS requests}
   \item{port}{Character, Port available on}
   \item{type}{Character, Proxy protocol, one of "http", "socks4", "socks5"}
@@ -23,7 +23,7 @@ getProxy( country = NULL, notCountry = NULL,
 You can use getProxy when you needed get data from blocked on you country internet source.
 }
 \references{
-Package use two services \href{http://gimmeproxy.com/}{gimmeproxy} and \href{https://getproxylist.com/}{getproxylist}.
+Package use three services \href{http://gimmeproxy.com/}{gimmeproxy}, \href{https://www.proxy-list.download/}{proxy-list.download} and \href{https://getproxylist.com/}{getproxylist}.
 }
 \author{
 Alexey Seleznev

@@ -1,8 +1,8 @@
 Package: getProxy
 Type: Package
 Title: Get Free Proxy IP and Port
-Version: 1.3
-Date: 2021-12-24
+Version: 1.13
+Date: 2022-01-05
 Author: Alexey Seleznev <selesnow@gmail.com>
 Maintainer: Alexey Seleznev <selesnow@gmail.com>
 Description: Allows get address and port 
@@ -13,5 +13,5 @@ Description: Allows get address and port
 Depends: R (>= 3.5.0)
 BugReports: https://github.com/selesnow/getProxy/issues
 Imports: httr, cli
-URL: http://selesnow.github.io/getProxy
+URL: https://selesnow.github.io/getProxy/
 License: GPL-2

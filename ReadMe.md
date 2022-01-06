@@ -6,13 +6,13 @@
 <a href="https://selesnow.github.io/"><img src="https://alexeyseleznev.files.wordpress.com/2017/03/as.png" height="80"></a>
 </p>
 
-# getProxy<a href='https:/selesnow/github.io/getProxy'><img src='https://raw.githubusercontent.com/selesnow/getProxy/master/inst/logo/getProxy.png' align="right" height="139" /></a>
+# getProxy<a href='https://selesnow.github.io/getProxy/'><img src='https://raw.githubusercontent.com/selesnow/getProxy/master/inst/logo/getProxy.png' align="right" height="139" /></a>
 
 ## Описание пакета getProxy.
 Пакет getProxy предназначен для работы с бесплатными прокси серверами из R.
 
 ## CRAN
-[![Rdoc](http://www.rdocumentation.org/badges/version/getProxy)](http://www.rdocumentation.org/packages/getProxy)
+[![Rdoc](http://www.rdocumentation.org/badges/version/getProxy)](https://www.rdocumentation.org/packages/getProxy)
 [![rpackages.io rank](http://www.rpackages.io/badge/getProxy.svg)](http://www.rpackages.io/package/getProxy)
 [![](https://cranlogs.r-pkg.org/badges/getProxy)](https://cran.r-project.org/package=getProxy)
 
@@ -97,8 +97,8 @@ getProxy(action = "stop")
 Алексей Селезнёв, Head of analytics dept. at [Netpeak](https://netpeak.net)
 <Br>email: selesnow@gmail.com
 <Br>skype: selesnow
-<Br>facebook: [facebook.com/selesnow](https://facebook.com/selesnow)
-<Br>linkedin: [linkedin.com/in/selesnow](https://linkedin.com/in/selesnow)
+<Br>facebook: [facebook.com/selesnow](https://www.facebook.com/selesnow)
+<Br>linkedin: [linkedin.com/in/selesnow](https://www.linkedin.com/in/selesnow)
 <Br>blog: [alexeyseleznev.wordpress.com](https://alexeyseleznev.wordpress.com/)
   
 <p align="center">
